@@ -10,8 +10,7 @@ const refs = {
 
 makeGalleryMarkup()
 function makeGalleryMarkup() {
-    const arr = []
-    items.forEach((item) => {
+    const arr = items.map((item) => {
         const listItem = document.createElement("li")
         listItem.classList.add("gallery__item")
 
@@ -24,9 +23,8 @@ function makeGalleryMarkup() {
         imgItem.classList.add("gallery__image")
 
         linkItem.append(imgItem)
-        arr.push(listItem)
+        return listItem
     })
-
     refs.ul.append(...arr)
 
     refs.li = document.querySelectorAll(".gallery__item")
@@ -71,7 +69,6 @@ function openModal(event) {
         makeImage(Number(event.target.dataset.index))
     }
 }
-
 function makeImage(currentIndex) {
     const currentImg = Object.entries(refs.img)
         .map((item) => item[1])
