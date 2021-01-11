@@ -39,7 +39,7 @@ function setAtrributes() {
         refs.a[i].setAttribute("href", items[i].original)
         refs.img[i].setAttribute("src", items[i].preview)
         refs.img[i].setAttribute("data-source", items[i].original)
-        refs.img[i].setAttribute("img", items[i].description)
+        refs.img[i].setAttribute("alt", items[i].description)
         refs.img[i].setAttribute("data-index", [i])
     }
 }
