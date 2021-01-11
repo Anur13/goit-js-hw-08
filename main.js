@@ -25,6 +25,7 @@ function makeGalleryMarkup() {
         linkItem.append(imgItem)
         return listItem
     })
+
     refs.ul.append(...arr)
 
     refs.li = document.querySelectorAll(".gallery__item")
@@ -51,12 +52,17 @@ document.addEventListener("keydown", scrollLeft)
 document.addEventListener("keydown", scrollRight)
 
 function scrollLeft(event) {
-    if (event.key === "ArrowLeft" && refs.lightbox_image.dataset.index > 0) {
+    if (event.key === "ArrowLeft" && Number(refs.lightbox_image.dataset.index) === 0) {
+        makeImage(items.length - 1)
+    } else if (event.key === "ArrowLeft" && refs.lightbox_image.dataset.index > 0) {
         makeImage(Number(refs.lightbox_image.dataset.index) - 1)
     }
 }
+
 function scrollRight(event) {
-    if (event.key === "ArrowRight" && refs.lightbox_image.dataset.index < 8) {
+    if (event.key === "ArrowRight" && Number(refs.lightbox_image.dataset.index) === items.length - 1) {
+        makeImage(items.length - items.length)
+    } else if (event.key === "ArrowRight" && refs.lightbox_image.dataset.index < 8) {
         makeImage(Number(refs.lightbox_image.dataset.index) + 1)
     }
 }
