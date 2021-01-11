@@ -76,9 +76,7 @@ function openModal(event) {
     }
 }
 function makeImage(currentIndex) {
-    const currentImg = Object.entries(refs.img)
-        .map((item) => item[1])
-        .find((item, index) => index === currentIndex)
+    const currentImg = Object.values(refs.img).find((item, index) => index === currentIndex)
     refs.lightbox_image.setAttribute("src", currentImg.dataset.source)
     refs.lightbox_image.setAttribute("alt", currentImg.getAttribute("img"))
     refs.lightbox_image.setAttribute("data-index", currentImg.dataset.index)
