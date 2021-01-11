@@ -82,14 +82,11 @@ function makeImage(currentIndex) {
 }
 
 function closeModal(event) {
-    if (event.key === "Escape") {
-    }
     refs.modal.classList.remove("is-open")
     refs.lightbox_image.setAttribute("src", "")
 }
 function closeModal_key(event) {
     if (event.key === "Escape") {
-        refs.modal.classList.remove("is-open")
-        refs.lightbox_image.setAttribute("src", "")
+        closeModal()
     }
 }
